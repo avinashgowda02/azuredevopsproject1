@@ -26,12 +26,12 @@ stages:
         deploy:
           steps:
             - script: echo deploy to dev
-- stage: devdeployjob
+- stage: QAdeployjob
   jobs:
-  - deployment: devdeployjob
+  - deployment: QAdeployjob
     environment: QA
     strategy:
       runOnce:
         deploy:
           steps:
-            - script: echo deploy to dev
+            - script: echo deploy to QA
