@@ -18,20 +18,16 @@ stages:
     - job: second job
       steps:
       - bash: echo Hello, first job!
-stages:
 - stage: Devdeploy
   jobs:
     - job: Devdeploy job
       steps:
       - bash: echo Devdeploy job
-
-stages:
 - stage: QAdeploy
   jobs:
     - job: QAdeploy job
       steps:
       - bash: echo Devdeploy job
-stages:
 - stage: Proddeploy
   jobs:
     - job: QAdeploy job
