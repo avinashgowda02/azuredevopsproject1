@@ -20,8 +20,6 @@ stages:
       - bash: echo $(Build.Buildid)
       - bash: echo $(Build.ArtifactStagingDirectory)
       - bash: Java -version
-      - bash: python --version
-      - bash: mvn -version
       - bash: ls -R $(Build.ArtifactStagingDirectory)
       - task: CopyFiles@2
         inputs:
@@ -29,6 +27,12 @@ stages:
           Contents: '**/*.yaml'
           TargetFolder: '$(Build.ArtifactStagingDirectory)'
       - bash: ls -R $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'artifcat'
+          publishLocation: 'Container'
+
 #     - job: secondjob
 #       steps:
 #       - bash: echo Hello, first job!
