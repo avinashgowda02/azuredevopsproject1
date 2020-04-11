@@ -29,11 +29,11 @@ stages:
       steps:
       - bash: echo Devdeploy job
 - stage: Proddeploy
-
-  jobs:
-    - job: Proddeployjob
-      dependsOn:
+  dependsOn:
       - Devdeploy
       - QAdeploy
+  jobs:
+    - job: Proddeployjob
+      
       steps:
       - bash: echo Devdeploy job
